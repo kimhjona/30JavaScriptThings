@@ -136,9 +136,24 @@
     if (input.propertyName !== 'transform') return;
     this.classList.remove('playing');
   }
+  function removePianoWhite(input) {
+    if (input.propertyName !== 'transform') return;
+    this.classList.remove('playing');
+  }
+  function removePianoBlack(input) {
+    if (input.propertyName !== 'transform') return;
+    this.classList.remove('playing');
+  }
 
   const keys = document.querySelectorAll('.key');
   keys.forEach((key) => key.addEventListener('transitionend', removeTransition));
+
+  const keysBlack = document.querySelectorAll('.piano-black');
+  keysBlack.forEach((key) => key.addEventListener('transitionend', removePianoBlack));
+
+  const keysWhite = document.querySelectorAll('.piano-white');
+  keysWhite.forEach((key) => key.addEventListener('transitionend', removePianoWhite));
+
 
 </script>
 
