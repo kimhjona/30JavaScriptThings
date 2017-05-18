@@ -100,25 +100,28 @@
   </div>
 
   <script>
-    const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
-    let lastChecked
-    function handleCheck(event) {
-      let inBetween = false;
-      if (event.shiftKey && this.checked) {
-        checkboxes.forEach(checkBox => {
-          if (checkBox === this || checkBox === lastChecked) {
-            inBetween = !inBetween;
-            console.log(event)
-          }
-          if (inBetween) checkBox.checked = true;
-        })
-      }
-      console.log(event)
-      lastChecked = this;
+    const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"');
+    console.log(checkboxes);
+
+    let lastChecked;
+
+    function shiftCheck(event) {
+
+      checkboxes.forEach(checkbox => {
+        let inBetween = false;
+
+        if (checkbox === this || checkbox === lastChecked) {
+          inBetween = !inBetween;
+          console.log(checkbox)
+        }
+
+        }
+      );
+
     }
 
-    checkboxes.forEach((box) => {
-      box.addEventListener('click', handleCheck)
+    checkboxes.forEach((input) => {
+      input.addEventListener('click', shiftCheck)
     })
   </script>
 </body>
